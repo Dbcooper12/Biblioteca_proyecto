@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rp_GruposPorCategoria" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="486ba6b4-f982-48aa-93f5-39cad7d1df1d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select P.codProducto, P.nomproducto,P.descripcion desPro, P.precio, P.stock, P.codCategoria,
+C.nomCategoria, C.descripcion desCat
+from producto P inner join categoria C on P.codCategoria=C.codCategoria
+where P.vigencia=true]]>
+	</queryString>
+	<field name="codproducto" class="java.lang.Integer"/>
+	<field name="nomproducto" class="java.lang.String"/>
+	<field name="despro" class="java.lang.String"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="stock" class="java.lang.Integer"/>
+	<field name="codcategoria" class="java.lang.Integer"/>
+	<field name="nomcategoria" class="java.lang.String"/>
+	<field name="descat" class="java.lang.String"/>
+	<group name="grupoCategoria">
+		<groupExpression><![CDATA[$F{codcategoria}]]></groupExpression>
+		<groupHeader>
+			<band height="36">
+				<textField>
+					<reportElement x="89" y="11" width="144" height="20" uuid="60ef7d91-4031-4025-8afa-fefae4a6d9a3"/>
+					<textFieldExpression><![CDATA[$F{nomcategoria}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="11" width="65" height="20" uuid="d909baa3-3860-4846-a9a4-cb0a38f49264"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CATEGORIA:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="233" y="11" width="78" height="20" uuid="b05dacb2-dfc9-4088-9fd9-4270b6adc16f"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[DESCRIPCION:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="311" y="11" width="223" height="20" uuid="d8b2fd3f-f26e-4f74-9a03-22179fd291ef"/>
+					<textFieldExpression><![CDATA[$F{descat}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="72" y="11" width="17" height="20" uuid="d852d3b0-a7d6-403d-83b8-e91a2ad59d73"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{codcategoria}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="2" y="31" width="553" height="1" uuid="2d00288e-2f24-4940-923e-76e4c2314810"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<image>
+				<reportElement x="29" y="9" width="49" height="55" uuid="13ad9dbb-cf40-469b-80bd-9024fb3eaf52"/>
+				<imageExpression><![CDATA["E:\\Desarrollo App Esc\\appUnidad1\\Recursos\\iconfinder_windows_291696.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="89" y="19" width="445" height="35" forecolor="#000000" uuid="2accfadc-e569-4bdf-9ab3-a13f5f537334"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PRODUCTOS POR CATEGORIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="8" width="553" height="27" backcolor="#CCCCCC" uuid="6801328d-bedb-449a-87bc-52de5c9980bc"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="434" y="15" width="100" height="20" uuid="d297a213-26f3-4390-853e-231fceb26477"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[STOCK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="104" y="15" width="100" height="20" uuid="5f26f678-9dcd-4fd2-a58c-35952eb50694"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="15" width="100" height="20" uuid="55ec580f-9164-4a0a-8e8c-d31e740599b3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="15" width="100" height="20" uuid="5bf8ffc8-fefd-4c02-ad03-e8819c46491a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD. PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="15" width="100" height="20" uuid="9d1d801e-a00c-40e6-b909-3ace9c7e4815"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="0" width="100" height="20" uuid="fe646ec8-f02c-4c88-8dd6-bccffb9a47f1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{codproducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="100" height="20" uuid="a7f05ac3-8ffa-44bd-8927-da30d12fbd98"/>
+				<textFieldExpression><![CDATA[$F{nomproducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="0" width="169" height="20" uuid="2347c696-d7cc-418c-b5b6-0b6bfb0f2f1f"/>
+				<textFieldExpression><![CDATA[$F{despro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="0" width="49" height="20" uuid="d0d39ec7-8a9c-4d4e-ac9f-e8d058a69618"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="50" height="20" uuid="124ba1a8-b6a4-424a-964e-dcb87d207efb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{stock}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
