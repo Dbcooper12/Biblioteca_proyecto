@@ -11,6 +11,11 @@ package capaNegocio;
  */
 public class clsAlumno {
     
+//<<<<<<< HEAD
    //vvvvvv
+//=======
+   //sdasd
+    
+//>>>>>>> origin/master
     
 }
