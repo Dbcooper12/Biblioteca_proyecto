@@ -11,11 +11,12 @@ package capaNegocio;
  */
 public class clsAlumno {
     
-    //Hola 
-    
-    //jojojojof
     
     
-    //unirr
+    
+    
+    
+    
+    
     
 }
