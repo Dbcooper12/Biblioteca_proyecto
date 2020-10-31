@@ -17,6 +17,9 @@ public class clsAlumno {
     
     
     
+    
+    
+    
     //Hola pueba si esq se borra
     
 }
