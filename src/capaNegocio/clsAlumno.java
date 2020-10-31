@@ -10,6 +10,14 @@ package capaNegocio;
  * @author manue
  */
 public class clsAlumno {
-    //asdasd
+    //
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
