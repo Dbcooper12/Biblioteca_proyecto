@@ -11,6 +11,10 @@ package capaNegocio;
  */
 public class clsAlumno {
     
+//555    
+    
+    
+    
     
     
     //Hola pueba si esq se borra
