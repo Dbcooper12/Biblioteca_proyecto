@@ -11,16 +11,6 @@ package capaNegocio;
  */
 public class clsAlumno {
     
-    //oooo
-    
-    
-    //ppp
-    //asdasda
-    
-    
-    
-    
-    //asdasd
-    
+   //vvvvvv
     
 }
