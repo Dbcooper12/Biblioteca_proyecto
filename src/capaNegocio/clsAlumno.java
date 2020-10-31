@@ -11,11 +11,8 @@ package capaNegocio;
  */
 public class clsAlumno {
     
-//unir parte 2
+    //Hola 
     
-    //Hola yy
-    
-    
-    //unir parte 1
+    //jojojojo
     
 }
