@@ -185,7 +185,8 @@ public class jdInicioSesionBiblioteca extends javax.swing.JDialog {
                     //numIntentos=numIntentos+1;
                     numIntentos++;
                     if (numIntentos>=3){
-                        JOptionPane.showMessageDialog(null,"Superó los tres intentos, responda pregunta secreta!");
+                        JOptionPane.showMessageDialog(null,"Superó los tres intentos");
+                        this.dispose();
                         //Pregunta secreta
                      
                     }
@@ -196,7 +197,7 @@ public class jdInicioSesionBiblioteca extends javax.swing.JDialog {
                 }  
             }else{
                 JOptionPane.showMessageDialog(null,"Bibliotecario no está vigente!");
-                this.dispose();
+               // this.dispose();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e.getMessage());
