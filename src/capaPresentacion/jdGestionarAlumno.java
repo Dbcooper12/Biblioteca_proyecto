@@ -443,6 +443,8 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                 objAlumno.registrar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), chkVigencia.isSelected());
                 limpiarControles();
                 listarAlumnos();
+                
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
