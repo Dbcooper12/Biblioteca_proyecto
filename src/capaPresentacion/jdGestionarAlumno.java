@@ -41,8 +41,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         btnNuevo = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnDarBaja = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -81,6 +79,11 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(":::..Gestionar Alumno .....:::::");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -112,22 +115,9 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         btnDarBaja.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnDarBaja.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnDarBaja.setPreferredSize(new java.awt.Dimension(80, 40));
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/eliminarCliente.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setDisabledIcon(null);
-        btnEliminar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEliminar.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnDarBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Mostrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDarBajaActionPerformed(evt);
             }
         });
 
@@ -138,12 +128,9 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDarBaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDarBaja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -155,11 +142,7 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                 .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -173,7 +156,7 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         cmbNacidadlidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbNacidadlidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perú", "Argentina", "Chille", "Venezuela", "Estados Unidos" }));
+        cmbNacidadlidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Perú", "Argentina", "Chille", "Venezuela", "Estados Unidos" }));
 
         txtCARNET.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -209,13 +192,13 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         jLabel11.setText("ciclo academico:");
 
         cmbCicloacademico.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbCicloacademico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        cmbCicloacademico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Plan Estudios:");
 
         cmbPLANESTUDIO.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbPLANESTUDIO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2011", "2017", "2018" }));
+        cmbPLANESTUDIO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "2011", "2017", "2018" }));
 
         chkVigencia.setBackground(new java.awt.Color(204, 255, 255));
         chkVigencia.setText("Vigente");
@@ -224,13 +207,13 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         jLabel13.setText("Carrera Universitaria:");
 
         cmbCarreraUniversitaria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbCarreraUniversitaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeneria De sistemas", "Derecho", "Ingeneria Civil", "Ingeneria Mecanica", "Ingeneria Naval", "Arquitectura", "Psicologia", " " }));
+        cmbCarreraUniversitaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Ingeneria De sistemas", "Derecho", "Ingeneria Civil", "Ingeneria Mecanica", "Ingeneria Naval", "Arquitectura", "Psicologia", " " }));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Escuela:");
 
         cmbESCUELA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbESCUELA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeneria", "Derecho", "Siencias Sociales" }));
+        cmbESCUELA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Ingeneria", "Derecho", "Siencias Sociales" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Apellido Paterno:");
@@ -434,17 +417,21 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         try {
             if (btnNuevo.getText().equals("Nuevo")) {
+                habilitarTexto();
                 btnNuevo.setText("Guardar");
                 limpiarControles();
                 //txtCodigo.setText(objCliente.generarCodigoCliente().toString());
             } else {
+                Bloqueartexto();
                 btnNuevo.setText("Nuevo");
-                //  objCliente.registrar( Integer.parseInt(txtCodigo.getText()), objCliente.obtenerCodigoTipoCliente(cmbTipo.getSelectedItem().toString()),txtDni.getText(), txtRuc.getText(), txtNombres.getText(), txtTelefono.getText(), txtCorreo.getText(), txtDireccion.getText() , chkVigencia.isSelected() );
-                objAlumno.registrar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), chkVigencia.isSelected());
-                limpiarControles();
-                listarAlumnos();
-                
-                
+                if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbPLANESTUDIO.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
+                    JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Registro Exitoso");
+                    objAlumno.registrar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), chkVigencia.isSelected());
+                    limpiarControles();
+                    listarAlumnos();
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -454,40 +441,47 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         try {
-             if (txtDNI.getText().equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un DNI para buscar");
-            }else{
-                objAlumno.modificar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(),this.chkVigencia.isSelected());
-            listarAlumnos();
-             }   
-            
+            if (txtDNI.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un DNI a modificar");
+            } else {
+                if (btnModificar.getText().equals("Modificar")) {
+                    habilitarTexto();
+                    btnModificar.setText("Guardar");
+                    //limpiarControles();
+
+                } else {
+                    Bloqueartexto();
+                    btnModificar.setText("Modificar");
+                    if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbPLANESTUDIO.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
+                        JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
+                    } else {
+                        objAlumno.modificar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), this.chkVigencia.isSelected());
+                        limpiarControles();
+                        listarAlumnos();
+
+                    }
+
+                }
+
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        try {
-//            objCliente.eliminarCliente(Integer.parseInt(txtCodigo.getText()));
-//            limpiarControles();
-//            listarClientes();
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         try {
-              if (txtDNI.getText().equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un DNI para buscar");
-            }else{
-                rs= objAlumno.buscarAlumno(txtDNI.getText());
-                if (rs.next()){
+            if (txtDNI.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un DNI para buscar");
+            } else {
+                rs = objAlumno.buscarAlumno(txtDNI.getText());
+                if (rs.next()) {
                     txtDNI.setText(rs.getString("dniestudiante"));
                     txtCARNET.setText(rs.getString("carnetuniversitario"));
                     txtNOMBRES.setText(rs.getString("nombre"));
-                     txtAPELLIDOP.setText(rs.getString("ap_paterno"));
+                    txtAPELLIDOP.setText(rs.getString("ap_paterno"));
                     txtAPELLIDOM.setText(rs.getString("ap_materno"));
                     txtTELEFONO.setText(rs.getString("telefono"));
                     txtCORREO.setText(rs.getString("correo"));
@@ -497,14 +491,14 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                     cmbPLANESTUDIO.setSelectedItem(rs.getObject("planestudios"));
                     cmbCarreraUniversitaria.setSelectedItem(rs.getObject("carrerauniversitaria"));
                     cmbESCUELA.setSelectedItem(rs.getObject("escuela"));
-                    chkVigencia.setSelected(rs.getBoolean("vigencia"));                     
+                    chkVigencia.setSelected(rs.getBoolean("vigencia"));
                     rs.close();
-                }else{
-                    JOptionPane.showMessageDialog(this,"dni alumno no existe!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "dni alumno no existe!");
                     limpiarControles();
                 }
-            }   
-            
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -512,17 +506,29 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
 
     private void tblAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnoMouseClicked
         // TODO add your handling code here:
-//        txtCodigo.setText(String.valueOf(tblClientes.getValueAt(tblClientes.getSelectedRow(),0)));
-        //  btnNuscarActionPerformed(null);
+     txtDNI.setText(String.valueOf(tblAlumno.getValueAt(tblAlumno.getSelectedRow(),0)));
+        btnBuscarActionPerformed(null);
     }//GEN-LAST:event_tblAlumnoMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaActionPerformed
         // TODO add your handling code here:
-        
+        try {
+            objAlumno.darBaja(txtDNI.getText());
+            limpiarControles();
+            listarAlumnos();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
+
+    }//GEN-LAST:event_btnDarBajaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        limpiarControles();
+        Bloqueartexto();
         listarAlumnos();
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_formWindowActivated
     private void limpiarControles() {
         txtDNI.setText("");
         txtCARNET.setText("");
@@ -534,6 +540,11 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         txtCORREO.setText("");
         chkVigencia.setSelected(false);
         txtDNI.requestFocus();
+        cmbNacidadlidad.setSelectedItem("Seleccionar");
+        cmbCicloacademico.setSelectedItem("Seleccionar");
+        cmbPLANESTUDIO.setSelectedItem("Seleccionar");
+        cmbCarreraUniversitaria.setSelectedItem("Seleccionar");
+        cmbESCUELA.setSelectedItem("Seleccionar");
     }
 
     private void listarAlumnos() {
@@ -541,17 +552,17 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
 
         String vigencia = "";
         DefaultTableModel modeloC = new DefaultTableModel();
-        modeloC.addColumn("DNI");
-        modeloC.addColumn("CARNET");
-        modeloC.addColumn("NOMBRE");
-        modeloC.addColumn("TELEFONO");
-        modeloC.addColumn("CORREO");
-        modeloC.addColumn("DIRECCION");
-        modeloC.addColumn("NACIONALIDAD");
-        modeloC.addColumn("Ciclo");
-        modeloC.addColumn("Plan Estudios");
-        modeloC.addColumn("Carrera Universitaria");
-        modeloC.addColumn("Escuela");
+        modeloC.addColumn("dni");
+        modeloC.addColumn("carnet");
+        modeloC.addColumn("nombre");
+        modeloC.addColumn("nacionalidad");
+        modeloC.addColumn("direccion");
+        modeloC.addColumn("telefono");
+        modeloC.addColumn("correo");
+        modeloC.addColumn("ciclo");
+        modeloC.addColumn("plan estudios");
+        modeloC.addColumn("carrera ");
+        modeloC.addColumn("escuela");
         modeloC.addColumn("Vigencia");
 
         tblAlumno.setModel(modeloC);
@@ -566,7 +577,7 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                 modeloC.addRow(new Object[]{rsCliente.getString("dniestudiante"),
                     rsCliente.getString("carnetuniversitario"),
                     rsCliente.getString("nombre") + " " + rsCliente.getString("ap_paterno") + " " + rsCliente.getString("ap_materno"),
-                     rsCliente.getString("nacionalidad"),
+                    rsCliente.getString("nacionalidad"),
                     rsCliente.getString("direccion"),
                     rsCliente.getString("telefono"),
                     rsCliente.getString("correo"),
@@ -582,12 +593,31 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Error al consultar alumnos");
         }
     }
-    
-     private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
-        limpiarControles();
-         listarAlumnos();
-       
-    } 
+
+    //private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
+    //    limpiarControles();
+    //     listarAlumnos();
+    //} 
+    public void Bloqueartexto() {
+        txtCARNET.setEditable(false);
+        txtNOMBRES.setEditable(false);
+        txtAPELLIDOP.setEditable(false);
+        txtAPELLIDOM.setEditable(false);
+        txtTELEFONO.setEditable(false);
+        txtCORREO.setEditable(false);
+        txtDIRECCION.setEditable(false);
+    }
+
+    public void habilitarTexto() {
+        txtCARNET.setEditable(true);
+        txtNOMBRES.setEditable(true);
+        txtAPELLIDOP.setEditable(true);
+        txtAPELLIDOM.setEditable(true);
+        txtTELEFONO.setEditable(true);
+        txtCORREO.setEditable(true);
+        txtDIRECCION.setEditable(true);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -595,7 +625,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDarBaja;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JCheckBox chkVigencia;
@@ -604,7 +633,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cmbESCUELA;
     private javax.swing.JComboBox<String> cmbNacidadlidad;
     private javax.swing.JComboBox<String> cmbPLANESTUDIO;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
