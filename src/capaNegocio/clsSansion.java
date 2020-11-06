@@ -10,5 +10,14 @@ package capaNegocio;
  * @author manue
  */
 public class clsSansion {
+    //asdas
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

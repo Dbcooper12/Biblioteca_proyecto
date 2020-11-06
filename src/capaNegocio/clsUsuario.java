@@ -62,4 +62,11 @@ public class clsUsuario
 //        return rpta;
 //    }
     
+    
+    
+    
+    
+    
+    
+    
 }
