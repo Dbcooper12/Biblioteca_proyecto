@@ -5,12 +5,18 @@
  */
 package capaPresentacion;
 
+import capaNegocio.clsBibliotecario;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author manue
  */
 public class jdGestionarBibliotecario extends javax.swing.JDialog {
 
+    clsBibliotecario objBibliotecario = new clsBibliotecario();
+    ResultSet rs = null;
     /**
      * Creates new form jdGestionarBibliotecario
      */
@@ -28,27 +34,384 @@ public class jdGestionarBibliotecario extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCodigoBibliotecario = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
+        chkVigencia = new javax.swing.JCheckBox();
+        jPanel2 = new javax.swing.JPanel();
+        btnNuevo = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnDarBaja = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblBibliotecario = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 255, 255));
+        setForeground(new java.awt.Color(51, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+
+        jLabel1.setText("Codigo Bibliotecario");
+
+        jLabel2.setText("Nombre Completo");
+
+        jLabel3.setText("Email");
+
+        jLabel4.setText("Contraseña");
+
+        jLabel5.setText("Vigencia");
+
+        chkVigencia.setBackground(new java.awt.Color(204, 255, 255));
+        chkVigencia.setText("Vigente");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(124, 124, 124)
+                                .addComponent(txtCodigoBibliotecario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkVigencia))))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCodigoBibliotecario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(chkVigencia))
+                .addGap(64, 64, 64))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(0, 255, 255));
+
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registrarCliente.png"))); // NOI18N
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/modificarCliente.png"))); // NOI18N
+        btnModificar.setText("Modificar");
+        btnModificar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnDarBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/darBajaCliente.png"))); // NOI18N
+        btnDarBaja.setText("Dar baja");
+        btnDarBaja.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnDarBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDarBajaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDarBaja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDarBaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(39, 39, 39))
+        );
+
+        tblBibliotecario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblBibliotecario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBibliotecarioMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblBibliotecario);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (btnNuevo.getText().equals("Nuevo")) {
+                
+                btnNuevo.setText("Guardar");
+                limpiarControles();
+                //txtCodigo.setText(objCliente.generarCodigoCliente().toString());
+            } else {
+                
+                btnNuevo.setText("Nuevo");
+                if (this.chkVigencia.isSelected()) {
+                    JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Registro Exitoso");
+                    objBibliotecario.registrar(txtCodigoBibliotecario.getText(),txtNombre.getText(), txtEmail.getText(), txtContraseña.getText(), this.chkVigencia.isSelected());
+                    limpiarControles();
+                    listarBibliotecario();
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void tblBibliotecarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBibliotecarioMouseClicked
+        // TODO add your handling code here:
+        txtCodigoBibliotecario.setText(String.valueOf(tblBibliotecario.getValueAt(tblBibliotecario.getSelectedRow(),0)));
+        
+    }//GEN-LAST:event_tblBibliotecarioMouseClicked
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
     
-    
-    
+        // TODO add your handling code here:
+         try {
+            if (txtCodigoBibliotecario.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nombre a modificar");
+            } else {
+                if (btnModificar.getText().equals("Modificar")) {
+                    habilitarTexto();
+                    btnModificar.setText("Guardar");
+                    //limpiarControles();
+
+                } else {
+                    Bloqueartexto();
+                    btnModificar.setText("Modificar");
+                    if (this.chkVigencia.isSelected()) {
+                        JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
+                    } else {
+                        objBibliotecario.modificar(txtCodigoBibliotecario.getText(), txtNombre.getText(), txtEmail.getText(),txtContraseña.getText(),this.chkVigencia.isSelected());
+                        limpiarControles();
+                        listarBibliotecario();
+
+                    }
+
+                }
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaActionPerformed
+        // TODO add your handling code here:
+         try {
+            objBibliotecario.darBaja(txtCodigoBibliotecario.getText());
+            limpiarControles();
+            listarBibliotecario();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnDarBajaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void listarBibliotecario() {
+        ResultSet rsBibliotecario = null;
+
+        String vigencia = "";
+        DefaultTableModel modeloC = new DefaultTableModel();
+        modeloC.addColumn("codigobibliotecario");
+        modeloC.addColumn("nombrecompleto");
+        modeloC.addColumn("email");
+        modeloC.addColumn("contraseña");
+        modeloC.addColumn("vigencia");
+
+        tblBibliotecario.setModel(modeloC);
+        try {
+            rsBibliotecario = objBibliotecario.listarBibliotecario();
+            while (rsBibliotecario.next()) {
+                if (rsBibliotecario.getString("vigencia").equals("t")) {
+                    vigencia = "Si";
+                } else {
+                    vigencia = "No";
+                }
+                modeloC.addRow(new Object[]{rsBibliotecario.getString("codigobibliotecario"),
+                    rsBibliotecario.getString("nombrecompleto"),
+                    rsBibliotecario.getString("email"),
+                    rsBibliotecario.getString("contraseña"),
+                    vigencia});
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al consultar bibliotecario");
+        }
+    }
+    private void limpiarControles() {
+        
+        txtNombre.setText("");
+        txtEmail.setText("");
+        txtContraseña.setText("");
+        chkVigencia.setSelected(false);
+       
+    }
+
+    public void Bloqueartexto() {
+        txtCodigoBibliotecario.setEditable(false);
+        txtNombre.setEditable(true);
+        txtEmail.setEditable(true);
+        txtContraseña.setEditable(true);
+    }
+    public void habilitarTexto() {
+        txtCodigoBibliotecario.setEditable(true);
+        txtNombre.setEditable(true);
+        txtEmail.setEditable(true);
+        txtContraseña.setEditable(true);
+       
+    }
     
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDarBaja;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JCheckBox chkVigencia;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblBibliotecario;
+    private javax.swing.JTextField txtCodigoBibliotecario;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
+
