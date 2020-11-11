@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package capaPresentacion;
 
 import capaNegocio.clsAlumno;
@@ -58,8 +53,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         btnBuscar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         cmbCicloacademico = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
-        cmbPLANESTUDIO = new javax.swing.JComboBox<>();
         chkVigencia = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
         cmbCarreraUniversitaria = new javax.swing.JComboBox<>();
@@ -71,8 +64,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         txtNOMBRES = new javax.swing.JTextField();
         txtTELEFONO = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblAlumno = new javax.swing.JTable();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Nacionalidad:");
@@ -194,17 +185,11 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         cmbCicloacademico.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbCicloacademico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel12.setText("Plan Estudios:");
-
-        cmbPLANESTUDIO.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmbPLANESTUDIO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "2011", "2017", "2018" }));
-
         chkVigencia.setBackground(new java.awt.Color(204, 255, 255));
         chkVigencia.setText("Vigente");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel13.setText("Carrera Universitaria:");
+        jLabel13.setText("Facultad:");
 
         cmbCarreraUniversitaria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbCarreraUniversitaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Ingeneria De sistemas", "Derecho", "Ingeneria Civil", "Ingeneria Mecanica", "Ingeneria Naval", "Arquitectura", "Psicologia", " " }));
@@ -231,12 +216,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbESCUELA, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -291,16 +270,18 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbNacidadlidad, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
-                                .addComponent(chkVigencia))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbPLANESTUDIO, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbCarreraUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(chkVigencia)))))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbCarreraUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbESCUELA, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,53 +322,26 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(cmbCicloacademico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(cmbPLANESTUDIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbCarreraUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(cmbCarreraUniversitaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
                     .addComponent(cmbESCUELA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
-
-        tblAlumno.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAlumnoMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tblAlumno);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -408,7 +362,8 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -424,11 +379,11 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
             } else {
                 Bloqueartexto();
                 btnNuevo.setText("Nuevo");
-                if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbPLANESTUDIO.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
+                if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
                     JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
                 } else {
                     JOptionPane.showMessageDialog(this, "Registro Exitoso");
-                    objAlumno.registrar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), chkVigencia.isSelected());
+                    objAlumno.registrar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), chkVigencia.isSelected());
                     limpiarControles();
                     listarAlumnos();
                 }
@@ -452,10 +407,10 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                 } else {
                     Bloqueartexto();
                     btnModificar.setText("Modificar");
-                    if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbPLANESTUDIO.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
+                    if (cmbNacidadlidad.getSelectedItem().toString().equals("Seleccionar") || cmbCicloacademico.getSelectedItem().toString().equals("Seleccionar") || cmbCarreraUniversitaria.getSelectedItem().toString().equals("Seleccionar") || cmbESCUELA.getSelectedItem().toString().equals("Seleccionar")) {
                         JOptionPane.showMessageDialog(this, "Debe Seleccionar los campos");
                     } else {
-                        objAlumno.modificar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbPLANESTUDIO.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), this.chkVigencia.isSelected());
+                        objAlumno.modificar(txtDNI.getText(), txtCARNET.getText(), txtNOMBRES.getText(), txtAPELLIDOP.getText(), txtAPELLIDOM.getText(), cmbNacidadlidad.getSelectedItem().toString(), txtDIRECCION.getText(), txtTELEFONO.getText(), txtCORREO.getText(), cmbCicloacademico.getSelectedItem().toString(), cmbCarreraUniversitaria.getSelectedItem().toString(), cmbESCUELA.getSelectedItem().toString(), this.chkVigencia.isSelected());
                         limpiarControles();
                         listarAlumnos();
 
@@ -488,8 +443,8 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
                     txtDIRECCION.setText(rs.getString("direccion"));
                     cmbNacidadlidad.setSelectedItem(rs.getObject("nacionalidad"));
                     cmbCicloacademico.setSelectedItem(rs.getObject("cicloacademico"));
-                    cmbPLANESTUDIO.setSelectedItem(rs.getObject("planestudios"));
-                    cmbCarreraUniversitaria.setSelectedItem(rs.getObject("carrerauniversitaria"));
+
+                    cmbCarreraUniversitaria.setSelectedItem(rs.getObject("facultad"));
                     cmbESCUELA.setSelectedItem(rs.getObject("escuela"));
                     chkVigencia.setSelected(rs.getBoolean("vigencia"));
                     rs.close();
@@ -503,12 +458,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void tblAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlumnoMouseClicked
-        // TODO add your handling code here:
-     txtDNI.setText(String.valueOf(tblAlumno.getValueAt(tblAlumno.getSelectedRow(),0)));
-        btnBuscarActionPerformed(null);
-    }//GEN-LAST:event_tblAlumnoMouseClicked
 
     private void btnDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaActionPerformed
         // TODO add your handling code here:
@@ -542,56 +491,54 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
         txtDNI.requestFocus();
         cmbNacidadlidad.setSelectedItem("Seleccionar");
         cmbCicloacademico.setSelectedItem("Seleccionar");
-        cmbPLANESTUDIO.setSelectedItem("Seleccionar");
+
         cmbCarreraUniversitaria.setSelectedItem("Seleccionar");
         cmbESCUELA.setSelectedItem("Seleccionar");
     }
 
     private void listarAlumnos() {
-        ResultSet rsCliente = null;
-
-        String vigencia = "";
-        DefaultTableModel modeloC = new DefaultTableModel();
-        modeloC.addColumn("dni");
-        modeloC.addColumn("carnet");
-        modeloC.addColumn("nombre");
-        modeloC.addColumn("nacionalidad");
-        modeloC.addColumn("direccion");
-        modeloC.addColumn("telefono");
-        modeloC.addColumn("correo");
-        modeloC.addColumn("ciclo");
-        modeloC.addColumn("plan estudios");
-        modeloC.addColumn("carrera ");
-        modeloC.addColumn("escuela");
-        modeloC.addColumn("Vigencia");
-
-        tblAlumno.setModel(modeloC);
-        try {
-            rsCliente = objAlumno.listarAlumnos();
-            while (rsCliente.next()) {
-                if (rsCliente.getString("vigencia").equals("t")) {
-                    vigencia = "Si";
-                } else {
-                    vigencia = "No";
-                }
-                modeloC.addRow(new Object[]{rsCliente.getString("dniestudiante"),
-                    rsCliente.getString("carnetuniversitario"),
-                    rsCliente.getString("nombre") + " " + rsCliente.getString("ap_paterno") + " " + rsCliente.getString("ap_materno"),
-                    rsCliente.getString("nacionalidad"),
-                    rsCliente.getString("direccion"),
-                    rsCliente.getString("telefono"),
-                    rsCliente.getString("correo"),
-                    rsCliente.getString("cicloacademico"),
-                    rsCliente.getString("planestudios"),
-                    rsCliente.getString("carrerauniversitaria"),
-                    rsCliente.getString("escuela"),
-                    vigencia});
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al consultar alumnos");
-        }
+//        ResultSet rsCliente = null;
+//
+//        String vigencia = "";
+//        DefaultTableModel modeloC = new DefaultTableModel();
+//        modeloC.addColumn("dni");
+//        modeloC.addColumn("carnet");
+//        modeloC.addColumn("nombre");
+//        modeloC.addColumn("nacionalidad");
+//        modeloC.addColumn("direccion");
+//        modeloC.addColumn("telefono");
+//        modeloC.addColumn("correo");
+//        modeloC.addColumn("ciclo");
+//        modeloC.addColumn("carrera ");
+//        modeloC.addColumn("escuela");
+//        modeloC.addColumn("Vigencia");
+//
+//        tblAlumno.setModel(modeloC);
+//        try {
+//            rsCliente = objAlumno.listarAlumnos();
+//            while (rsCliente.next()) {
+//                if (rsCliente.getString("vigencia").equals("t")) {
+//                    vigencia = "Si";
+//                } else {
+//                    vigencia = "No";
+//                }
+//                modeloC.addRow(new Object[]{rsCliente.getString("dniestudiante"),
+//                    rsCliente.getString("carnetuniversitario"),
+//                    rsCliente.getString("nombre") + " " + rsCliente.getString("ap_paterno") + " " + rsCliente.getString("ap_materno"),
+//                    rsCliente.getString("nacionalidad"),
+//                    rsCliente.getString("direccion"),
+//                    rsCliente.getString("telefono"),
+//                    rsCliente.getString("correo"),
+//                    rsCliente.getString("cicloacademico"),
+//                    rsCliente.getString("carrerauniversitaria"),
+//                    rsCliente.getString("escuela"),
+//                    vigencia});
+//
+//            }
+//
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "Error al consultar alumnos");
+//        }
     }
 
     //private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
@@ -632,11 +579,9 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cmbCicloacademico;
     private javax.swing.JComboBox<String> cmbESCUELA;
     private javax.swing.JComboBox<String> cmbNacidadlidad;
-    private javax.swing.JComboBox<String> cmbPLANESTUDIO;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -650,8 +595,6 @@ public class jdGestionarAlumno extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblAlumno;
     private javax.swing.JTextField txtAPELLIDOM;
     private javax.swing.JTextField txtAPELLIDOP;
     private javax.swing.JTextField txtCARNET;
