@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package capaPresentacion;
 
 import java.awt.Image;
@@ -79,6 +74,7 @@ public class jfPrincipal extends javax.swing.JFrame {
         jConsultar = new javax.swing.JMenu();
         jConsultarLibros = new javax.swing.JMenuItem();
         jConsultarDatosDelEstudiante = new javax.swing.JMenuItem();
+        jConsultarDatosDelEstudiante1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem20 = new javax.swing.JMenuItem();
 
@@ -480,6 +476,14 @@ public class jfPrincipal extends javax.swing.JFrame {
         });
         jConsultar.add(jConsultarDatosDelEstudiante);
 
+        jConsultarDatosDelEstudiante1.setText("Consultar Prestamo");
+        jConsultarDatosDelEstudiante1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConsultarDatosDelEstudiante1ActionPerformed(evt);
+            }
+        });
+        jConsultar.add(jConsultarDatosDelEstudiante1);
+
         jMenuBar1.add(jConsultar);
 
         jMenu7.setText("Reportes");
@@ -663,6 +667,13 @@ public class jfPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jGestionarLibroActionPerformed
 
+    private void jConsultarDatosDelEstudiante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultarDatosDelEstudiante1ActionPerformed
+        // TODO add your handling code here:
+        jdConsultarPrestamo objLogin = new jdConsultarPrestamo( this , true);
+        objLogin.setLocationRelativeTo(this);
+        objLogin.setVisible(true);
+    }//GEN-LAST:event_jConsultarDatosDelEstudiante1ActionPerformed
+
     
     
     
@@ -677,6 +688,7 @@ public class jfPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jCerrarSesion;
     private javax.swing.JMenu jConsultar;
     private javax.swing.JMenuItem jConsultarDatosDelEstudiante;
+    private javax.swing.JMenuItem jConsultarDatosDelEstudiante1;
     private javax.swing.JMenuItem jConsultarLibros;
     private javax.swing.JMenuItem jGestionarAlumno;
     private javax.swing.JMenuItem jGestionarBibliotecario;
@@ -720,3 +732,4 @@ public class jfPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuarioActivo;
     // End of variables declaration//GEN-END:variables
 }
+
