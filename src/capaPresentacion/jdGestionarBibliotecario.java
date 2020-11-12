@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class jdGestionarBibliotecario extends javax.swing.JDialog {
 
-    clsBibliotecario objBibliotecario = new clsBibliotecario();
+ clsUsuario objBibliotecario = new clsUsuario();
     ResultSet rs = null;
     /**
      * Creates new form jdGestionarBibliotecario
