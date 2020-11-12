@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package capaPresentacion;
-
-import capaNegocio.clsBibliotecario;
+ 
+import capaNegocio.clsUsuario;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
@@ -332,7 +332,7 @@ public class jdGestionarBibliotecario extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dispose();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void listarBibliotecario() {
