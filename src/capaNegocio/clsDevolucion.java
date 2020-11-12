@@ -1,7 +1,9 @@
 package capaNegocio;
 
 import capaDatos.clsJDBC;
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 
 /**
@@ -13,6 +15,8 @@ public class clsDevolucion {
     clsJDBC objConectar = new clsJDBC();
     String strSQL;
     ResultSet rs = null;
+    Connection con = null;
+    Statement sent;
 
     public Integer generarCodigoDevolucion() throws Exception {
         strSQL = "SELECT COALESCE(max(codigodevolucion),0)+1 as codigodevolucion from devolucion";
@@ -37,15 +41,31 @@ public class clsDevolucion {
         }
     }
 
-    public void registrar(Integer codigodevolucion, Integer numeroPrestamo, String nombreLibro, String fechaDevolucion, String dnialumno, String estado) throws Exception {
-        strSQL = "insert into devolucion values("+codigodevolucion+"," +  numeroPrestamo +",'" + nombreLibro +"','" + dnialumno + "','"+estado+"','"+fechaDevolucion+"')";
-      
+    public void registrar(Integer codigodevolucion, Integer numeroPrestamo, String nombreLibro, String fechaDevolucion, String dnialumno) throws Exception {
         try {
-            objConectar.ejecutarBD(strSQL);
+            objConectar.conectar();
+            con = objConectar.getCon();
+            con.setAutoCommit(false);
+            sent = con.createStatement();
+            strSQL = "insert into devolucion values(" + codigodevolucion + "," + numeroPrestamo + ",'" + nombreLibro + "','" + dnialumno + "','Devuelto','" + fechaDevolucion + "')";
+            sent.executeUpdate(strSQL);
+          //elimno prestamo
+            strSQL = "DELETE FROM prestamo WHERE numeroprestamo="+numeroPrestamo+";";
+            sent.executeUpdate(strSQL);
+          //actualizo estado de libro
+            strSQL = "UPDATE libro SET estado='Disponible' WHERE  codigolibro="+nombreLibro+";";
+            sent.executeUpdate(strSQL);
+            con.commit();
+
         } catch (Exception e) {
-            throw new Exception("Error al registrar devolucion" + e.getMessage());
+            con.rollback();
+            throw new Exception("Error al guardar Devolucion: " + e.getMessage());
+        } finally {
+            objConectar.desconectar();
         }
 
     }
+//    
 
 }
+
